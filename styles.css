@@ -1,0 +1,33 @@
+/* Custom CSS Variables */
+:root {}
+
+/* HEADER */
+#logoImg {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/*MAIN*/
+.custom-carousel-height {
+    display: flex;
+    align-items: center;
+    height: 500px;
+}
+
+.custom-carousel-height img {
+    object-position: center;
+    transform: scale(0.3);
+    max-height: 1500px;
+}
+
+.imgCards {
+    height: 300px;
+}
+
+/*FOOTER*/
+#footer {
+    height: 50px;
+    margin-top: 25px;
+}
+
+/* MEDIA QUERIES */
