@@ -1,3 +1,6 @@
+let numProducts = 9;
+let products = [];
+
 function getCarousel(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then(res => res.json())
@@ -28,19 +31,22 @@ function getCards() {
     fetch(`https://fakestoreapi.com/products`)
         .then(res => res.json())
         .then(json => {
+            products = json;
+            console.log(products);
+
             let html = ``;
 
-            for (let i = 0; i < 9; i++) {
+            for (let i = 0; i < numProducts && i < products.length; i++) {
                 html += `
                     <div class="col">
                         <div class="card h-100">
-                            <img src="${json[i].image}" class="card-img-top imgCards">
+                            <img src="${products[i].image}" class="card-img-top imgCards">
                             <div class="card-body">
-                                <h5 class="card-title">${json[i].title}</h5>
-                                <p class="card-text">${json[i].description}</p>
+                                <h5 class="card-title">${products[i].title}</h5>
+                                <p class="card-text">${products[i].description}</p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-body-secondary">R$${json[i].price}</small>
+                                <small class="text-body-secondary">R$${products[i].price}</small>
                             </div>
                         </div>
                     </div>
@@ -48,7 +54,32 @@ function getCards() {
             }
 
             document.getElementById('cards').innerHTML = html;
+
+            if (numProducts >= products.length) {
+                disableLoadMoreButton();
+            } else {
+                enableLoadMoreButton();
+            }
         });
+}
+
+function loadMore() {
+    const remainingProducts = products.length - numProducts;
+    const productsToAdd = Math.min(remainingProducts, 3);
+
+    numProducts += productsToAdd;
+
+    getCards();
+}
+
+function disableLoadMoreButton() {
+    const loadMoreButton = document.getElementById('loadBtn');
+    loadMoreButton.disabled = true;
+}
+
+function enableLoadMoreButton() {
+    const loadMoreButton = document.getElementById('loadBtn');
+    loadMoreButton.disabled = false;
 }
 
 function getFooter() {
@@ -69,5 +100,16 @@ window.onload = function () {
     });
 
     getCards();
+
+    const loadBtn = document.getElementById('loadBtn');
+    loadBtn.addEventListener('click', function () {
+        loadMore();
+    });
+
     getFooter();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const defaultCategory = 'electronics';
+    getCarousel(defaultCategory);
+});

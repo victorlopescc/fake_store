@@ -24,6 +24,10 @@
     height: 300px;
 }
 
+#loadMore {
+    margin-top: 25px;
+}
+
 /*FOOTER*/
 #footer {
     height: 50px;
