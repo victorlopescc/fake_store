@@ -8,6 +8,13 @@ function getFooter() {
     document.getElementById('footer').innerHTML = ` &copy; ${year} - Fake Store`;
 }
 
+function loadNav() {
+    const navLogin = document.getElementById('navLogin');
+    if (window.location.href.includes('login=true')) {
+        navLogin.classList.add('disabledLink');
+    }
+}
+
 function getCarousel(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then(res => res.json())
@@ -129,4 +136,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     getFooter();
+    loadNav();
 });

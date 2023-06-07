@@ -60,9 +60,20 @@ main {
     text-decoration: none;
 }
 
-/* MEDIA QUERIES */
+#searchSelect {
+    margin-top: 10px;
+}
 
-/* MOBILE */
+/* LOGIN */
+#login {
+    margin-top: 40px;
+}
+
+.disabledLink {
+    display: none;
+}
+
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
     #mobile {
         display: flex;

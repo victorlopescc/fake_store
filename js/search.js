@@ -17,7 +17,7 @@ function searchProducts(input) {
                                         <h6 class="text-success">R$ ${json[i].price}</h6>
                                         <h5 class="card-title">${json[i].title}</h5>
                                         <p class="card-text">${json[i].description}</p>
-                                        <p class="card-text"><small class="text-body-secondary">${json[i].category}</small>
+                                        <p class="card-text"><small class="text-body-secondary">${json[i].category.toUpperCase()}</small>
                                         </p>
                                     </div>
                                 </div>
