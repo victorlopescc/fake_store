@@ -20,6 +20,10 @@
     max-height: 1500px;
 }
 
+.custom-height {
+    height: 100px;
+}
+
 .imgCards {
     height: 300px;
 }

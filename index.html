@@ -17,7 +17,7 @@
     <header class="bg-body-tertiary">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img id="logoImg" src="assets/img/logo.png">Fake Store</a>
+                <a class="navbar-brand" href="index.html"><img id="logoImg" src="assets/img/logo.png">Fake Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -26,15 +26,17 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="index.html"><i
+                                    class="bi bi-house-fill"></i>
                                 Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="bi bi-cart-fill"></i> Cart</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form id="searchForm" class="d-flex" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search">
                         <button class="d-flex btn btn-outline-success" type="submit"><i
                                 class="bi bi-search"></i></button>
                     </form>
@@ -44,7 +46,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="container">
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"

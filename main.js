@@ -1,6 +1,13 @@
 let numProducts = 9;
 let products = [];
 
+function getFooter() {
+    let date = new Date();
+    let year = date.getFullYear();
+
+    document.getElementById('footer').innerHTML = ` &copy; ${year} - Fake Store`;
+}
+
 function getCarousel(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then(res => res.json())
@@ -23,7 +30,12 @@ function getCarousel(category) {
                 `;
             }
 
-            document.getElementById('carousel').innerHTML = html;
+            const carousel = document.getElementById('carousel');
+            if (carousel === null) {
+                return;
+            } else {
+                carousel.innerHTML = html;
+            }
         });
 }
 
@@ -32,15 +44,13 @@ function getCards() {
         .then(res => res.json())
         .then(json => {
             products = json;
-            console.log(products);
 
             let html = ``;
-
             for (let i = 0; i < numProducts && i < products.length; i++) {
                 html += `
                     <div class="col">
                         <div class="card h-100">
-                            <img src="${products[i].image}" class="card-img-top imgCards">
+                            <a href="./pages/details.html?id=${products[i].id}"><img src="${products[i].image}" class="card-img-top imgCards"></a>
                             <div class="card-body">
                                 <h5 class="card-title">${products[i].title}</h5>
                                 <p class="card-text">${products[i].description}</p>
@@ -55,10 +65,11 @@ function getCards() {
 
             document.getElementById('cards').innerHTML = html;
 
+            const loadMoreButton = document.getElementById('loadBtn');
             if (numProducts >= products.length) {
-                disableLoadMoreButton();
+                loadMoreButton.disabled = true;
             } else {
-                enableLoadMoreButton();
+                loadMoreButton.disabled = false;
             }
         });
 }
@@ -72,32 +83,19 @@ function loadMore() {
     getCards();
 }
 
-function disableLoadMoreButton() {
-    const loadMoreButton = document.getElementById('loadBtn');
-    loadMoreButton.disabled = true;
-}
-
-function enableLoadMoreButton() {
-    const loadMoreButton = document.getElementById('loadBtn');
-    loadMoreButton.disabled = false;
-}
-
-function getFooter() {
-    let date = new Date();
-    let year = date.getFullYear();
-
-    document.getElementById('footer').innerHTML = ` &copy; ${year} - Fake Store`;
-}
-
 window.onload = function () {
     const select = document.getElementById('carouselSelect');
 
-    select.addEventListener('change', function () {
-        const selected = select.value;
-        if (selected !== 'Select category') {
-            getCarousel(selected);
-        }
-    });
+    if (select === null) {
+        return;
+    } else {
+        select.addEventListener('change', function () {
+            const selected = select.value;
+            if (selected !== 'Select category') {
+                getCarousel(selected);
+            }
+        });
+    }
 
     getCards();
 
@@ -105,11 +103,30 @@ window.onload = function () {
     loadBtn.addEventListener('click', function () {
         loadMore();
     });
-
-    getFooter();
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const defaultCategory = 'electronics';
     getCarousel(defaultCategory);
+
+    const searchForm = document.getElementById('searchForm');
+    searchForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const input = document.getElementById('searchInput').value;
+        if (input === '') {
+            return;
+        } else {
+            if (window.location.href.includes('/pages/')) {
+                window.location.href = `./search.html?input=${input}`;
+                return;
+            } else {
+                window.location.href = `./pages/search.html?input=${input}`;
+                return;
+            }
+        }
+    });
+
+    getFooter();
 });
