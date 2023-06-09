@@ -19,13 +19,13 @@ This project is a small e-commerce website that utilizes the "Fake Store API" to
 - Product detail page for each clicked item
 - Login area (beta phase) for users registered via API
 
-![Carousel](assets/video/carousel.mp4)
+![Carousel](assets/img/carousel.gif)
 
-![Cards](assets/video/cards.mp4)
+![Cards](assets/img/cards.gif)
 
-![Search Bar And Detail Page](assets/video/search.mp4)
+![Search Bar And Detail Page](assets/img/search.gif)
 
-![Login](assets/video/login.mp4)
+![Login](assets/img/login.gif)
 
 ## Responsive Design
 
