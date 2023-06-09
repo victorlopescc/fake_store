@@ -3,10 +3,10 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [How to Use](#howtouse)
-- [API Endpoints](#apiendpoints)
-- [Used Technologies](#usedtechnologies)
-- [Additional Resources](#additionalresources)
+- [How to Use](#how-to-use)
+- [API Endpoints](#api-endpoints)
+- [Used Technologies](#used-technologies)
+- [Additional Resources](#additional-resources)
 - [Roadmap](#roadmap)
 
 ## Introduction
