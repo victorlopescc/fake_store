@@ -1,5 +1,16 @@
 # Fake Store
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [How to Use](#howtouse)
+- [API Endpoints](#apiendpoints)
+- [Used Technologies](#usedtechnologies)
+- [Additional Resources](#additionalresources)
+- [Roadmap](#roadmap)
+
+## Introduction
+
 This project is a small e-commerce website that utilizes the "Fake Store API" to fetch product data. The site is developed using HTML, CSS, and JavaScript, with the Bootstrap framework. It features the following functionalities:
 
 - Carousel with category filtering
